@@ -10,7 +10,7 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
   ],
   daisyui: {
-    themes: ['light']
+    themes: ['dark']
   },
   theme: {
     extend: {},

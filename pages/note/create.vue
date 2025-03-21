@@ -56,15 +56,12 @@ const handleSubmit = async () => {
 }
 </script>
 
-
-
-
 <template>
     <div class="p-6">
-        <NuxtLink to="/" class="btn btn-primary mb-4 text-center">Back</NuxtLink>
+        <NuxtLink to="/" class="btn btn-primary text-center">Back</NuxtLink>
     </div>
-    <div class="flex justify-center items-center min-h-screen">
-      <div class="w-full max-w-lg bg-base-300 p-6 rounded-2xl shadow-lg">
+    <div class="flex justify-center">
+    <div class="w-full max-w-xl bg-base-300 p-6 rounded-2xl shadow-lg">
 
     <form @submit.prevent="handleSubmit">
         <fieldset class="fieldset space-y-4">
@@ -79,16 +76,16 @@ const handleSubmit = async () => {
             <p class="validator-hint text-sm text-gray-500">Required</p>
 
             <fieldset class="fieldset space-y-2">
-            <legend class="fieldset-legend text-lg font-semibold text-white">Your topic</legend>
+            <h1 class="text-lg font-semibold text-white">Your topic</h1>
             <textarea v-model="topic" class="textarea h-24 w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-300" placeholder="Enter your topic"></textarea>
             </fieldset>
 
             <fieldset class="fieldset space-y-2">
-            <legend class="fieldset-legend text-lg font-semibold text-white">Your note</legend>
+            <h1 class="text-lg font-semibold text-white">Your note</h1>
             <textarea v-model="note" class="textarea h-24 w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-300" placeholder="What are you thinking?"></textarea>
             </fieldset>
 
-            <button class="btn btn-secondary w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition" type="submit">
+            <button class="btn w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition" type="submit">
             Save
             </button>
         </fieldset>

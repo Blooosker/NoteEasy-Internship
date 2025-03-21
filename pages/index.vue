@@ -6,16 +6,17 @@
       
   
       <div class="flex space-x-4">
-        <button class="btn" @click="filterNotes('All')">All</button>
-        <button class="btn" @click="filterNotes('To Do List')">To Do List</button>
-        <button class="btn" @click="filterNotes('Note My Day')">Note My Day</button>
-        <button class="btn" @click="filterNotes('Reminder')">Reminder</button>
+        <button class="btn btn-primary" @click="filterNotes('All')">All</button>
+        <button class="btn btn-warning" @click="filterNotes('To Do List')">To Do List</button>
+        <button class="btn btn-success" @click="filterNotes('Note My Day')">Note My Day</button>
+        <button class="btn btn-secondary" @click="filterNotes('Reminder')">Reminder</button>
       </div>
     </div>
 
 
     <div v-if="filteredNotes.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div v-for="note in filteredNotes" :key="note.id" class="card bg-base-300 shadow-lg w-full">
+      <NuxtLink v-for="note in filteredNotes" :key="note.id" :to="`/note/${note.id}`" class="card bg-base-300 shadow-lg w-full">
+    
         <div class="card-body">
           <span class="badge badge-xs" :class="getBadgeClass(note.category)">{{ note.category }}</span>
           <h2 class="card-title">{{ note.topic }}</h2>
@@ -28,7 +29,7 @@
           <p class="text-gray-700">{{ note.note }}</p>
 
         </div>
-      </div>
+      </NuxtLink>
     </div>
 
     <p v-else class="text-center text-gray-500">No notes found.</p>
@@ -92,7 +93,7 @@ const getBadgeClass = (category) => {
   return {
     "To Do List": "badge-warning",
     "Note My Day": "badge-success",
-    "Reminder": "badge-error",
+    "Reminder": "badge-secondary",
   }[category] || "badge-secondary"
 }
 </script>

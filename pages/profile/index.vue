@@ -1,15 +1,28 @@
-
 <template>
-    <div class="profile-container" v-if="user">
- 
-      <p><strong>Name:</strong> {{ user.name }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>ID:</strong> {{ user.id }}</p>
-
-      <button btn btn-primary @click="logout"><strong>Logout</strong></button>
-
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="card card-side bg-white shadow-sm w-1/2 text-black" v-if="user">
+        <figure>
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+            alt="Profile Image"
+          />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title">Name: {{ user.name }}</h2>
+          <div>
+            <p>Email: {{ user.email }}</p>
+            <p>User ID: {{ user.id }}</p>
+          </div>
+          <div class="mt-20 card-actions justify-end">
+            <button class="btn btn-error" @click="logout">Logout</button>
+          </div>
+        </div>
+      </div>
     </div>
   </template>
+  
+
+  
   
   <script setup>
   import { ref, onMounted } from 'vue'
